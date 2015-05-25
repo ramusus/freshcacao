@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/spree-contrib/spree_i18n.git
-  revision: 82d12cd888e5df6451c35f8fae9a6634d0d21584
+  revision: 27c05de773d0eebb9652e7c0edae953576987074
   branch: 3-0-stable
   specs:
     spree_i18n (3.0.0)
@@ -90,7 +90,7 @@ GEM
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
     builder (3.2.2)
-    byebug (4.0.5)
+    byebug (5.0.0)
       columnize (= 0.9.0)
     camertron-eprun (1.1.0)
     cancancan (1.10.1)
@@ -158,7 +158,7 @@ GEM
       activerecord (>= 4.2.0, < 4.3)
     highline (1.6.21)
     htmlentities (4.3.3)
-    httparty (0.13.4)
+    httparty (0.13.5)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
@@ -183,7 +183,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mime-types (2.5)
+    mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.6.1)
     monetize (1.3.0)
@@ -211,7 +211,7 @@ GEM
     premailer (1.8.4)
       css_parser (>= 1.3.6)
       htmlentities (>= 4.0.0)
-    premailer-rails (1.8.1)
+    premailer-rails (1.8.2)
       actionmailer (>= 3, < 5)
       premailer (~> 1.7, >= 1.7.9)
     rabl (0.9.4.pre1)
@@ -259,7 +259,7 @@ GEM
     rvm1-capistrano3 (1.3.2.2)
       capistrano (~> 3.0)
       sshkit (>= 1.2)
-    sass (3.4.13)
+    sass (3.4.14)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.1)
