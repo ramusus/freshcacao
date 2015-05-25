@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby "2.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -51,4 +51,5 @@ gem 'spree_i18n', github: 'spree-contrib/spree_i18n', branch: '3-0-stable'
 
 gem 'capistrano',  '~> 3.1'
 gem 'capistrano-rails', '~> 1.1'
-# gem 'rvm-capistrano'
+gem 'capistrano-rvm'
+gem 'rvm1-capistrano3', require: false
