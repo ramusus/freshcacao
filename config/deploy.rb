@@ -10,6 +10,10 @@ set :repo_url, 'git@github.com:ramusus/freshcacao.git'
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/home/hosting_abbb/projects/fc_new'
 
+set :rvm_ruby_string, "2.2.0"
+set :rake,            "rvm use #{fetch(:rvm_ruby_string)} do bundle exec rake"
+set :bundle_cmd,      "rvm use #{fetch(:rvm_ruby_string)} do bundle"
+
 # Default value for :scm is :git
 set :scm, :git
 
