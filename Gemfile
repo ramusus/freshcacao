@@ -30,6 +30,7 @@ gem 'spree', '3.0.1'
 gem 'spree_gateway', github: 'spree/spree_gateway', branch: '3-0-stable'
 gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
 gem 'spree_i18n', github: 'spree-contrib/spree_i18n', branch: '3-0-stable'
+gem 'pg'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -45,10 +46,8 @@ group :development, :test do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rvm'
   gem 'rvm1-capistrano3', require: false
-  gem 'pg'
 end
 
 group :production do
   gem 'unicorn'
-  gem 'mysql2'
 end
