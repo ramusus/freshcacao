@@ -10,9 +10,7 @@ set :repo_url, 'git@github.com:ramusus/freshcacao.git'
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/home/hosting_abbb/projects/fc_new'
 
-set :rvm_ruby_string, "2.2.0"
-set :rake,            "rvm use #{fetch(:rvm_ruby_string)} do bundle exec rake"
-set :bundle_cmd,      "rvm use #{fetch(:rvm_ruby_string)} do bundle"
+set :rvm_ruby_version, '2.2.0'
 
 # Default value for :scm is :git
 set :scm, :git
@@ -41,18 +39,17 @@ set :keep_releases, 5
 namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
-        run "whoami"
-        # run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{deploy_to}/current && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D; fi"
+        run "if [ -f #{fetch(:unicorn_pid)} ] && [ -e /proc/$(cat #{fetch(:unicorn_pid)}) ]; then kill -USR2 `cat #{fetch(:unicorn_pid)}`; else cd #{deploy_to}/current && bundle exec unicorn -c #{fetch(:unicorn_conf)} -E #{fetch(:rails_env)} -D; fi"
     end
   end
   # task :start do
   #   run "bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D"
   # end
   # task :stop do
-  #   run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -QUIT `cat #{unicorn_pid}`; fi"
+  #   run "if [ -f #{fetch(:unicorn_pid)} ] && [ -e /proc/$(cat #{fetch(:unicorn_pid)}) ]; then kill -QUIT `cat #{fetch(:unicorn_pid)}`; fi"
   # end
   # task :restart, :roles => :app, :except => { :no_release => true } do
-  #   run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{deploy_to}/current && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D; fi"
+  #   run "if [ -f #{fetch(:unicorn_pid)} ] && [ -e /proc/$(cat #{fetch(:unicorn_pid)}) ]; then kill -USR2 `cat #{fetch(:unicorn_pid)}`; else cd #{deploy_to}/current && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D; fi"
   # end
   # task :auto_migrate do
   #   rake = fetch(:rake, "rake")
