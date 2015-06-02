@@ -83,12 +83,12 @@ namespace :deploy do
     # Check we are on the master branch, so we can't forget to merge before deploying
     branch = %x(git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*\\)/\\1/').chomp
     if branch != "master" && !ENV["IGNORE_BRANCH"]
-      raise Capistrano::Error, "Not on master branch (set IGNORE_BRANCH=1 to ignore)"
+      raise RuntimeError, "Not on master branch (set IGNORE_BRANCH=1 to ignore)"
     end
 
     # Push the changes
-    if ! system "git push #{fetch(:repository)} master"
-      raise Capistrano::Error, "Failed to push changes to #{fetch(:repository)}"
+    if ! system "git push #{fetch(:repo_url)} master"
+      raise RuntimeError, "Failed to push changes to #{fetch(:repo_url)}"
     end
 
   end
@@ -96,5 +96,5 @@ end
 
 if !ENV["NO_PUSH"]
   before "deploy", "deploy:push"
-  before "deploy:migrations", "deploy:push"
+  # before "deploy:migrations", "deploy:push"
 end
