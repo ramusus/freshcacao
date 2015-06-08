@@ -1,0 +1,26 @@
+@import "bootstrap";
+
+#spree-header {
+	
+	#header {
+		background-color: #fff;
+	}
+
+	#logo img {
+		width: 100px;
+	}
+}
+
+.main-logo {
+	@include make-sm-column(4);
+	text-align: center;
+}
+
+.top-menu {
+	@include make-sm-column(4);
+}
+
+.login {
+	@include make-sm-column(4);
+	text-align: right;
+}
