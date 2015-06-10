@@ -24,3 +24,42 @@
 	@include make-sm-column(4);
 	text-align: right;
 }
+
+/*shop index page*/
+.shop-index {
+	h1 {
+		text-align: center;
+		margin-bottom: 2em;
+	}
+}
+.list-group {
+	@include make-row;
+	text-align:center;
+}
+a.list-group-item {
+	@include make-xs-column(11);
+	@include make-sm-column(12);
+	background: rgba(115,115,115,1);
+	text-align: center;
+	text-decoration: underline;
+	color: #fff;
+	border: none;
+	
+	display:inline-block;
+	float:none;
+
+	&:hover, &:focus {
+		background: rgba(115,115,115,0.8);
+		color: #fff;
+	}
+
+	&:first-child {
+		border-top-right-radius: 0;
+		border-top-left-radius: 0;
+	}
+
+	&:last-child {
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+}
